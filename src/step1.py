@@ -37,10 +37,10 @@ def count_increases(generator):
     return count
 
 
-def count_sliding_window_increases(file):
+def count_sliding_window_increases(generator):
     bucket = SlidingWindow()
 
-    for x in _get_numbers(file):
+    for x in generator:
         bucket.append(x)
         if bucket.full:
             yield sum(bucket)

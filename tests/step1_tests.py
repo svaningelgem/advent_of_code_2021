@@ -1,23 +1,34 @@
 from pathlib import Path
 
-from step1 import count_increases, count_sliding_window_increases
+from _pytest.fixtures import fixture
+
+from step1 import count_increases, count_sliding_window_increases, _get_numbers
 
 TEST_INPUT = Path(__file__).parent / 'step1.txt'
-REAL_INPUT = Path(__file__).parent.parent.parent / 'src/step1.txt'
+REAL_INPUT = Path(__file__).parent.parent / 'src/step1.txt'
 
 
-def test_part1():
-    assert count_increases(TEST_INPUT) == 7
+@fixture
+def test_data():
+    yield _get_numbers(TEST_INPUT)
 
 
-def test_part1_real_data():
-    assert count_increases(REAL_INPUT) == 1696
+@fixture
+def real_data():
+    yield _get_numbers(REAL_INPUT)
 
 
-def test_part2_sliding():
-    assert count_increases(count_sliding_window_increases(TEST_INPUT)) == 5
+def test_part1(test_data):
+    assert count_increases(test_data) == 7
 
 
-def test_part2_real_data():
-    assert count_increases(count_sliding_window_increases(REAL_INPUT)) == 1737
+def test_part1_real_data(real_data):
+    assert count_increases(real_data) == 1696
 
+
+def test_part2_sliding(test_data):
+    assert count_increases(count_sliding_window_increases(test_data)) == 5
+
+
+def test_part2_real_data(real_data):
+    assert count_increases(count_sliding_window_increases(real_data)) == 1737
