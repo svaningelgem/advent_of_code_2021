@@ -1,21 +1,55 @@
 import sys
 from pathlib import Path
+from typing import Generator, Union
 
-file = sys.argv[1] if len(sys.argv) > 1 else 'input.txt'
 
-numbers = [
-    int(line.strip())
-    for line in Path(file).read_text().splitlines()
-    if line.strip()
-]
-print("# numbers:", len(numbers))
+class SlidingWindow(list):
+    max_size = 3
 
-pre = sys.maxsize
-count = 0
-for x in numbers:
-    if pre < x:
-        count += 1
+    def append(self, obj):
+        super().append(obj)
+        if len(self) > self.max_size:
+            self.pop(0)
 
-    pre = x
+    @property
+    def full(self) -> bool:
+        return len(self) == self.max_size
 
-print("increases:", count)
+
+def _get_numbers(file: Union[str, Path]) -> Generator[int, None, None]:
+    yield from (
+        int(line.strip())
+        for line in Path(file).read_text().splitlines()
+        if line.strip()
+    )
+
+
+def count_increases(generator):
+    pre = sys.maxsize
+
+    count = 0
+    for x in generator:
+        if pre < x:
+            count += 1
+
+        pre = x
+
+    return count
+
+
+def count_sliding_window_increases(file):
+    bucket = SlidingWindow()
+
+    for x in _get_numbers(file):
+        bucket.append(x)
+        if bucket.full:
+            yield sum(bucket)
+
+
+if __name__ == '__main__':
+    file = sys.argv[1] if len(sys.argv) > 1 else 'input.txt'
+
+    count = count_increases(_get_numbers(file))
+    print("increases:", count)
+    count = count_increases(count_sliding_window_increases(file))
+    print('sliding increase:', count)
