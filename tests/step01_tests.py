@@ -1,8 +1,7 @@
 from pathlib import Path
 
 from _pytest.fixtures import fixture
-
-from step1 import count_increases, count_sliding_window_increases, _get_numbers
+from step1 import _get_numbers, count_increases, count_sliding_window_increases
 
 TEST_INPUT = Path(__file__).parent / 'step1.txt'
 REAL_INPUT = Path(__file__).parent.parent / 'src/step1.txt'

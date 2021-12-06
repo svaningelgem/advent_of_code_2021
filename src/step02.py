@@ -1,6 +1,6 @@
 from collections import namedtuple
 from pathlib import Path
-from typing import Union, Generator
+from typing import Generator, Union
 
 Movement = namedtuple('Movement', 'direction amount')
 

@@ -1,8 +1,7 @@
 from pathlib import Path
 
 from _pytest.fixtures import fixture
-
-from step2 import calculate_position, _read_data, calculate_position_with_aim
+from step2 import _read_data, calculate_position, calculate_position_with_aim
 
 TEST_INPUT = Path(__file__).parent / 'step2.txt'
 REAL_INPUT = Path(__file__).parent.parent / 'src/step2.txt'
