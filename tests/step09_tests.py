@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from step09 import find_low_points, find_basins

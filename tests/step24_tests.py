@@ -1,7 +1,4 @@
-
 from pathlib import Path
-
-from _pytest.fixtures import fixture
 
 TEST_INPUT = Path(__file__).parent / 'step24.txt'
 REAL_INPUT = Path(__file__).parent.parent / 'src/step24.txt'

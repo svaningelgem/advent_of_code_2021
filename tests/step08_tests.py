@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from step08 import _get_number, decipher_line, decode_numbers

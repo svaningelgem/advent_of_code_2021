@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from step06 import simulate_life

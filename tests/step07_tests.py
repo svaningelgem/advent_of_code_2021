@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from step07 import _get_fuel_cost, find_least_fuel_position
