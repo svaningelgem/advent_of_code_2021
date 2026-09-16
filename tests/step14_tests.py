@@ -10,8 +10,12 @@ def test_step14():
     assert count_least_most_after_insertions(TEST_INPUT, 0) == 1  # 'NNCB'
     assert count_least_most_after_insertions(TEST_INPUT, 1) == 1  # 'NCNBCHB'
     assert count_least_most_after_insertions(TEST_INPUT, 2) == 5  # 'NBCCNBBBCBHCB'
-    assert count_least_most_after_insertions(TEST_INPUT, 3) == 7  # 'NBBBCNCCNBBNBNBBCHBHHBCHB'
-    assert count_least_most_after_insertions(TEST_INPUT, 4) == 18  # 'NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB'
+    assert (
+        count_least_most_after_insertions(TEST_INPUT, 3) == 7
+    )  # 'NBBBCNCCNBBNBNBBCHBHHBCHB'
+    assert (
+        count_least_most_after_insertions(TEST_INPUT, 4) == 18
+    )  # 'NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB'
 
     assert count_least_most_after_insertions(TEST_INPUT, 10) == 1588
 

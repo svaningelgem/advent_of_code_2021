@@ -17,7 +17,11 @@ class SlidingWindow(list):
 
 
 def _get_numbers(file: str | Path) -> Generator[int, None, None]:
-    yield from (int(line.strip()) for line in Path(file).read_text().splitlines() if line.strip())
+    yield from (
+        int(line.strip())
+        for line in Path(file).read_text().splitlines()
+        if line.strip()
+    )
 
 
 def count_increases(generator):

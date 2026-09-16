@@ -42,7 +42,9 @@ class BingoSystem:
         return False
 
     def _has_won(self, bord, nr_list):
-        return self._has_won_horizontal(bord, nr_list) or self._has_won_vertical(bord, nr_list)
+        return self._has_won_horizontal(bord, nr_list) or self._has_won_vertical(
+            bord, nr_list
+        )
 
     def find_winning_bord(self):
         drawn_nr_list = []
