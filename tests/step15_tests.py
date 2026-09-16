@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step15 import find_route_minimal_risk, get_cave_step1, get_cave_step2
 
-TEST_INPUT = Path(__file__).parent / 'step15.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step15.txt'
+TEST_INPUT = Path(__file__).parent / "step15.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step15.txt"
 
 
 def test_step15():

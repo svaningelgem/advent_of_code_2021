@@ -2,10 +2,10 @@ from pathlib import Path
 
 from step12 import find_distinct_paths, find_multi_paths
 
-TEST1_INPUT = Path(__file__).parent / 'step12_1.txt'
-TEST2_INPUT = Path(__file__).parent / 'step12_2.txt'
-TEST3_INPUT = Path(__file__).parent / 'step12_3.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step12.txt'
+TEST1_INPUT = Path(__file__).parent / "step12_1.txt"
+TEST2_INPUT = Path(__file__).parent / "step12_2.txt"
+TEST3_INPUT = Path(__file__).parent / "step12_3.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step12.txt"
 
 
 def test_step12():

@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step07 import _get_fuel_cost, find_least_fuel_position
 
-TEST_INPUT = Path(__file__).parent / 'step07.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step07.txt'
+TEST_INPUT = Path(__file__).parent / "step07.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step07.txt"
 
 
 def test_step7():

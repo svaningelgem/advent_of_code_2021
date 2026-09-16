@@ -1,7 +1,6 @@
 import operator
 import re
 from pathlib import Path
-from typing import List, Optional
 
 
 def load_field(filename, only_horizontal_and_vertical=True):
@@ -20,12 +19,12 @@ class Field:
         self.field = []
         self.only_horizontal_and_vertical = only_horizontal_and_vertical
 
-    def _get_coords(self, line: str) -> Optional[List[int]]:
+    def _get_coords(self, line: str) -> list[int] | None:
         line = line.strip()
         if not line:
             return None
 
-        match = re.match(r'^\s*(\d+)\s*,\s*(\d+)\s*->\s*(\d+)\s*,\s*(\d+)\s*$', line)
+        match = re.match(r"^\s*(\d+)\s*,\s*(\d+)\s*->\s*(\d+)\s*,\s*(\d+)\s*$", line)
         if not match:
             raise ValueError("Invalid line")
 
@@ -57,17 +56,12 @@ class Field:
 
     @property
     def dangerous_points(self) -> int:
-        return sum(
-            1
-            for line in self.field
-            for el in line
-            if el > 1
-        )
+        return sum(1 for line in self.field for el in line if el > 1)
 
     def display(self) -> str:
-        disp = ''
+        disp = ""
         for line in self.field:
-            disp += ''.join('.' if c == 0 else str(c) for c in line) + '\n'
+            disp += "".join("." if c == 0 else str(c) for c in line) + "\n"
         return disp
 
     def _enlarge_width(self, min_width):

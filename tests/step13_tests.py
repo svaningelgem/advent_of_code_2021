@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step13 import fold_paper, print_letter
 
-TEST_INPUT = Path(__file__).parent / 'step13.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step13.txt'
+TEST_INPUT = Path(__file__).parent / "step13.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step13.txt"
 
 
 def test_step13():
@@ -16,17 +16,22 @@ def test_step13_real_data():
 
 
 def test_step13_part2():
-    assert print_letter(TEST_INPUT) == """
+    assert (
+        print_letter(TEST_INPUT)
+        == """
 #####
 #...#
 #...#
 #...#
 #####
 """.strip()
+    )
 
 
 def test_step13_part2_real_data():
-    assert print_letter(REAL_INPUT) == """
+    assert (
+        print_letter(REAL_INPUT)
+        == """
 ###...##..###..#..#..##..###..#..#.#...
 #..#.#..#.#..#.#..#.#..#.#..#.#.#..#...
 #..#.#....#..#.####.#..#.#..#.##...#...
@@ -34,3 +39,4 @@ def test_step13_part2_real_data():
 #....#..#.#....#..#.#..#.#.#..#.#..#...
 #.....##..#....#..#.#..#.#..#.#..#.####
 """.strip()
+    )

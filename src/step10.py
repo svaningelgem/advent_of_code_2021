@@ -13,10 +13,10 @@ class IncompleteLine(Exception):
 
 def process_line(line) -> None:
     seen = {
-        '{': '}',
-        '[': ']',
-        '(': ')',
-        '<': '>',
+        "{": "}",
+        "[": "]",
+        "(": ")",
+        "<": ">",
     }
 
     expected = []
@@ -38,10 +38,10 @@ def process_line(line) -> None:
 def find_score_part1(file: Path) -> int:
     score = 0
     score_table = {
-        ')': 3,
-        ']': 57,
-        '}': 1197,
-        '>': 25137,
+        ")": 3,
+        "]": 57,
+        "}": 1197,
+        ">": 25137,
     }
 
     for line in file.read_text().splitlines():
@@ -57,10 +57,10 @@ def find_score_part1(file: Path) -> int:
 
 def autocomplete_score(file: Path) -> int:
     score_table = {
-        ')': 1,
-        ']': 2,
-        '}': 3,
-        '>': 4,
+        ")": 1,
+        "]": 2,
+        "}": 3,
+        ">": 4,
     }
 
     scores = []

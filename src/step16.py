@@ -1,7 +1,6 @@
 import io
 import operator
 from functools import reduce
-from typing import Union
 
 
 def decode_hex(txt: str) -> str:
@@ -11,10 +10,8 @@ def decode_hex(txt: str) -> str:
     return s
 
 
-
-
 class Packet:
-    def __init__(self, packet: Union[io.StringIO, str]):
+    def __init__(self, packet: io.StringIO | str):
         if isinstance(packet, str):
             packet = io.StringIO(decode_hex(packet))
 
@@ -35,16 +32,16 @@ class Packet:
 
     def decode_literal(self, packet: io.StringIO):
         should_stop = False
-        literal = ''
+        literal = ""
         while not should_stop:
             current_value = packet.read(5)
-            should_stop = current_value[0] == '0'
+            should_stop = current_value[0] == "0"
             literal += current_value[1:]
         self._value = int(literal, 2)
 
     def decode_operator(self, packet):
         length_type_id = packet.read(1)
-        if length_type_id == '0':
+        if length_type_id == "0":
             size_to_read = int(packet.read(15), 2)
             bits_to_interpret = packet.read(size_to_read)
             new_stream = io.StringIO(bits_to_interpret)

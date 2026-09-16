@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step10 import autocomplete_score, find_score_part1
 
-TEST_INPUT = Path(__file__).parent / 'step10.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step10.txt'
+TEST_INPUT = Path(__file__).parent / "step10.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step10.txt"
 
 
 def test_step10():

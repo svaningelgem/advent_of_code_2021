@@ -1,6 +1,6 @@
 import sys
+from collections.abc import Generator
 from pathlib import Path
-from typing import Generator, Union
 
 
 class SlidingWindow(list):
@@ -16,12 +16,8 @@ class SlidingWindow(list):
         return len(self) == self.max_size
 
 
-def _get_numbers(file: Union[str, Path]) -> Generator[int, None, None]:
-    yield from (
-        int(line.strip())
-        for line in Path(file).read_text().splitlines()
-        if line.strip()
-    )
+def _get_numbers(file: str | Path) -> Generator[int, None, None]:
+    yield from (int(line.strip()) for line in Path(file).read_text().splitlines() if line.strip())
 
 
 def count_increases(generator):
@@ -46,10 +42,10 @@ def count_sliding_window_increases(generator):
             yield sum(bucket)
 
 
-if __name__ == '__main__':
-    file = sys.argv[1] if len(sys.argv) > 1 else 'input.txt'
+if __name__ == "__main__":
+    file = sys.argv[1] if len(sys.argv) > 1 else "input.txt"
 
     count = count_increases(_get_numbers(file))
     print("increases:", count)
     count = count_increases(count_sliding_window_increases(file))
-    print('sliding increase:', count)
+    print("sliding increase:", count)

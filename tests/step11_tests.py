@@ -2,14 +2,16 @@ from pathlib import Path
 
 from step11 import find_synchronized_flash, simulate_steps
 
-TEST_INPUT = Path(__file__).parent / 'step11.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step11.txt'
+TEST_INPUT = Path(__file__).parent / "step11.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step11.txt"
 
 
 def test_step11():
     tmp = simulate_steps(TEST_INPUT, 0)
     assert tmp[0] == 0
-    assert str(tmp[1]) == """5483143223
+    assert (
+        str(tmp[1])
+        == """5483143223
 2745854711
 5264556173
 6141336146
@@ -19,10 +21,13 @@ def test_step11():
 6882881134
 4846848554
 5283751526"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 1)
     assert tmp[0] == 0
-    assert tmp[1] == """6594254334
+    assert (
+        tmp[1]
+        == """6594254334
 3856965822
 6375667284
 7252447257
@@ -32,10 +37,13 @@ def test_step11():
 7993992245
 5957959665
 6394862637"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 2)
     assert tmp[0] == 35
-    assert tmp[1] == """8807476555
+    assert (
+        tmp[1]
+        == """8807476555
 5089087054
 8597889608
 8485769600
@@ -45,9 +53,12 @@ def test_step11():
 0000007456
 9000000876
 8700006848"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 3)
-    assert tmp[1] == """0050900866
+    assert (
+        tmp[1]
+        == """0050900866
 8500800575
 9900000039
 9700000041
@@ -57,9 +68,12 @@ def test_step11():
 2211130000
 0421125000
 0021119000"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 4)
-    assert tmp[1] == """2263031977
+    assert (
+        tmp[1]
+        == """2263031977
 0923031697
 0032221150
 0041111163
@@ -69,9 +83,12 @@ def test_step11():
 5532241122
 1532247211
 1132230211"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 5)
-    assert tmp[1] == """4484144000
+    assert (
+        tmp[1]
+        == """4484144000
 2044144000
 2253333493
 1152333274
@@ -81,9 +98,12 @@ def test_step11():
 6643352233
 2643358322
 2243341322"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 6)
-    assert tmp[1] == """5595255111
+    assert (
+        tmp[1]
+        == """5595255111
 3155255222
 3364444605
 2263444496
@@ -93,9 +113,12 @@ def test_step11():
 7754463344
 3754469433
 3354452433"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 7)
-    assert tmp[1] == """6707366222
+    assert (
+        tmp[1]
+        == """6707366222
 4377366333
 4475555827
 3496655709
@@ -105,9 +128,12 @@ def test_step11():
 8865585555
 4865580644
 4465574644"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 8)
-    assert tmp[1] == """7818477333
+    assert (
+        tmp[1]
+        == """7818477333
 5488477444
 5697666949
 4608766830
@@ -117,9 +143,12 @@ def test_step11():
 0000009666
 8000004755
 6800007755"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 9)
-    assert tmp[1] == """9060000644
+    assert (
+        tmp[1]
+        == """9060000644
 7800000976
 6900000080
 5840000082
@@ -129,10 +158,13 @@ def test_step11():
 2221130009
 9111128097
 7911119976"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 10)
     assert tmp[0] == 204
-    assert tmp[1] == """0481112976
+    assert (
+        tmp[1]
+        == """0481112976
 0031112009
 0041112504
 0081111406
@@ -142,9 +174,12 @@ def test_step11():
 5532252350
 0532250600
 0032240000"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 20)
-    assert tmp[1] == """3936556452
+    assert (
+        tmp[1]
+        == """3936556452
 5686556806
 4496555690
 4448655580
@@ -154,9 +189,12 @@ def test_step11():
 0000000344
 6000000364
 4600009543"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 30)
-    assert tmp[1] == """0643334118
+    assert (
+        tmp[1]
+        == """0643334118
 4253334611
 3374333458
 2225333337
@@ -166,9 +204,12 @@ def test_step11():
 5544458511
 9444447111
 7944446119"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 40)
-    assert tmp[1] == """6211111981
+    assert (
+        tmp[1]
+        == """6211111981
 0421111119
 0042111115
 0003111115
@@ -178,9 +219,12 @@ def test_step11():
 3322234597
 2222222976
 2222222762"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 50)
-    assert tmp[1] == """9655556447
+    assert (
+        tmp[1]
+        == """9655556447
 4865556805
 4486555690
 4458655580
@@ -190,9 +234,12 @@ def test_step11():
 8000000533
 6800000633
 5680000538"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 60)
-    assert tmp[1] == """2533334200
+    assert (
+        tmp[1]
+        == """2533334200
 2743334640
 2264333458
 2225333337
@@ -202,9 +249,12 @@ def test_step11():
 1854458611
 1175447111
 1115446111"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 70)
-    assert tmp[1] == """8211111164
+    assert (
+        tmp[1]
+        == """8211111164
 0421111166
 0042111114
 0004211115
@@ -214,9 +264,12 @@ def test_step11():
 7322235117
 5722223475
 4572222754"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 80)
-    assert tmp[1] == """1755555697
+    assert (
+        tmp[1]
+        == """1755555697
 5965555609
 4486555680
 4458655580
@@ -226,9 +279,12 @@ def test_step11():
 0000000990
 0000000800
 0000000000"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 90)
-    assert tmp[1] == """7433333522
+    assert (
+        tmp[1]
+        == """7433333522
 2643333522
 2264333458
 2226433337
@@ -238,10 +294,13 @@ def test_step11():
 4854458333
 3387779333
 3333333333"""
+    )
 
     tmp = simulate_steps(TEST_INPUT, 100)
     assert tmp[0] == 1656
-    assert tmp[1] == """0397666866
+    assert (
+        tmp[1]
+        == """0397666866
 0749766918
 0053976933
 0004297822
@@ -251,6 +310,7 @@ def test_step11():
 9322228966
 7922286866
 6789998766"""
+    )
 
 
 def test_step11_real_data():
