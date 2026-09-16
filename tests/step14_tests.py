@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step14 import count_least_most_after_insertions
 
-TEST_INPUT = Path(__file__).parent / 'step14.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step14.txt'
+TEST_INPUT = Path(__file__).parent / "step14.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step14.txt"
 
 
 def test_step14():

@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step4 import BingoSystem
 
-TEST_INPUT = Path(__file__).parent / 'step4.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step4.txt'
+TEST_INPUT = Path(__file__).parent / "step4.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step4.txt"
 
 
 def test_step4():

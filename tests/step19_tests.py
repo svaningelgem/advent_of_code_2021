@@ -1,7 +1,7 @@
 from pathlib import Path
 
-TEST_INPUT = Path(__file__).parent / 'step19.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step19.txt'
+TEST_INPUT = Path(__file__).parent / "step19.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step19.txt"
 
 
 def test_step19():

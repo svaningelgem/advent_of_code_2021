@@ -6,31 +6,25 @@ def _get_text(file):
 
 
 def _transpose(txt):
-    yield from (
-        ''.join(chars)
-        for chars in zip(*txt)
-    )
+    yield from ("".join(chars) for chars in zip(*txt))
 
 
 def _reverse_bits(txt):
-    return ''.join('1' if c == '0' else '0' for c in txt)
+    return "".join("1" if c == "0" else "0" for c in txt)
 
 
 def _most_present_bit(txt: str) -> str:
-    return '1' if txt.count('1') >= txt.count('0') else '0'
+    return "1" if txt.count("1") >= txt.count("0") else "0"
 
 
 def _least_present_bit(txt: str) -> str:
-    return '0' if txt.count('1') >= txt.count('0') else '1'
+    return "0" if txt.count("1") >= txt.count("0") else "1"
 
 
 def calculate_gamma_epsilon(file) -> int:
     generator = _transpose(_get_text(file))
 
-    gamma = ''.join(
-        _most_present_bit(line)
-        for line in generator
-    )
+    gamma = "".join(_most_present_bit(line) for line in generator)
 
     epsilon = _reverse_bits(gamma)
 
@@ -41,7 +35,7 @@ def calculate_gamma_epsilon(file) -> int:
 
 
 def _calculate_oxygen_co2(lines, func) -> str:
-    oxygen = ''
+    oxygen = ""
     reduced_lines = lines.copy()
     for i in range(len(lines[0])):
         if len(reduced_lines) == 1:
@@ -51,11 +45,7 @@ def _calculate_oxygen_co2(lines, func) -> str:
         bit = func(transposed_lines[i])
 
         oxygen += bit
-        reduced_lines = [
-            line
-            for line in reduced_lines
-            if line.startswith(oxygen)
-        ]
+        reduced_lines = [line for line in reduced_lines if line.startswith(oxygen)]
 
     return oxygen
 

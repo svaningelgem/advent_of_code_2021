@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step3 import calculate_gamma_epsilon, calculate_oxygen_co2
 
-TEST_INPUT = Path(__file__).parent / 'step3.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step3.txt'
+TEST_INPUT = Path(__file__).parent / "step3.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step3.txt"
 
 
 def test_step3():

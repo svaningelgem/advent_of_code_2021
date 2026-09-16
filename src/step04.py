@@ -7,7 +7,7 @@ class BingoSystem:
 
         txt = Path(file).read_text().splitlines()
 
-        self.numbers = [int(x) for x in txt[0].split(',')]
+        self.numbers = [int(x) for x in txt[0].split(",")]
         self.read_bords(txt)
 
     def read_bords(self, txt):
@@ -24,14 +24,14 @@ class BingoSystem:
                     bord = []
                 continue
 
-            bord.extend(int(x) for x in txt[current_line].split(' ') if x)
+            bord.extend(int(x) for x in txt[current_line].split(" ") if x)
 
         if bord:
             self.bords.append(bord)
 
     def _has_won_horizontal(self, bord, nr_list):
         for i in range(5):
-            if all(x in nr_list for x in bord[i*5:i*5+5]):
+            if all(x in nr_list for x in bord[i * 5 : i * 5 + 5]):
                 return True
         return False
 
@@ -42,10 +42,7 @@ class BingoSystem:
         return False
 
     def _has_won(self, bord, nr_list):
-        return (
-            self._has_won_horizontal(bord, nr_list)
-            or self._has_won_vertical(bord, nr_list)
-        )
+        return self._has_won_horizontal(bord, nr_list) or self._has_won_vertical(bord, nr_list)
 
     def find_winning_bord(self):
         drawn_nr_list = []

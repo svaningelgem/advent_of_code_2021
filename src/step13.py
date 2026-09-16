@@ -27,10 +27,10 @@ class Paper:
             if not line:
                 continue
 
-            if line.startswith('fold along'):
-                self.folds.append(FoldLine(*line[11:].split('=')))
+            if line.startswith("fold along"):
+                self.folds.append(FoldLine(*line[11:].split("=")))
             else:
-                self.points.append(Point(*map(int, line.split(','))))
+                self.points.append(Point(*map(int, line.split(","))))
 
     def __init__(self, file: Path):
         self._load_file(file)
@@ -39,9 +39,9 @@ class Paper:
         folds = self.folds if folds == -1 else self.folds[:folds]
 
         for fold in folds:
-            if fold.direction == 'y':
+            if fold.direction == "y":
                 self._fold_upwards(fold.coordinate)
-            elif fold.direction == 'x':
+            elif fold.direction == "x":
                 self._fold_sidewards(fold.coordinate)
             else:
                 raise ValueError("Invalid fold")
@@ -75,16 +75,10 @@ class Paper:
     def __str__(self):
         max_x = max(pt.x for pt in self.points)
         max_y = max(pt.y for pt in self.points)
-        array = [
-            ['.' for _ in range(max_x+1)]
-            for _ in range(max_y+1)
-        ]
+        array = [["." for _ in range(max_x + 1)] for _ in range(max_y + 1)]
         for pt in self.points:
-            array[pt.y][pt.x] = '#'
-        return '\n'.join(
-            ''.join(line)
-            for line in array
-        ).strip()
+            array[pt.y][pt.x] = "#"
+        return "\n".join("".join(line) for line in array).strip()
 
 
 def _fold_paper(file: Path, folds: int) -> Paper:

@@ -1,12 +1,11 @@
 from pathlib import Path
-from typing import Union
 
 
 class School:
     def __init__(self):
         self._internal: Dict[int, int] = {k: 0 for k in range(9)}
 
-    def add_fish(self, start_number: Union[str, int]) -> None:
+    def add_fish(self, start_number: str | int) -> None:
         self._internal[int(start_number)] += 1
 
     def advance_x_days(self, amount: int = 0) -> None:
@@ -29,7 +28,7 @@ class School:
 def create_school(filename) -> School:
     school = School()
 
-    for nr in filename.read_text().split(','):
+    for nr in filename.read_text().split(","):
         school.add_fish(nr)
 
     return school

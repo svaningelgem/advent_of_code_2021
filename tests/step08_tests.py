@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step08 import _get_number, decipher_line, decode_numbers
 
-TEST_INPUT = Path(__file__).parent / 'step08.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step08.txt'
+TEST_INPUT = Path(__file__).parent / "step08.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step08.txt"
 
 
 def test_step8():
@@ -15,7 +15,7 @@ def test_step8_real_data():
 
 
 def test_step8_part2():
-    assert _get_number('acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab', 'cdfeb fcadb cdfeb cdbaf') == 5353
+    assert _get_number("acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab", "cdfeb fcadb cdfeb cdbaf") == 5353
     assert decode_numbers(TEST_INPUT) == 61229
 
 

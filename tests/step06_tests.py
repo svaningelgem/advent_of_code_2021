@@ -2,8 +2,8 @@ from pathlib import Path
 
 from step06 import simulate_life
 
-TEST_INPUT = Path(__file__).parent / 'step06.txt'
-REAL_INPUT = Path(__file__).parent.parent / 'src/step06.txt'
+TEST_INPUT = Path(__file__).parent / "step06.txt"
+REAL_INPUT = Path(__file__).parent.parent / "src/step06.txt"
 
 
 def test_step6():

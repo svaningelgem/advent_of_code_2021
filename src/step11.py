@@ -1,9 +1,8 @@
 from pathlib import Path
-from typing import Tuple, Union
 
 
 class Octopus:
-    def __init__(self, initial_value: Union[str, int]):
+    def __init__(self, initial_value: str | int):
         self.value = int(initial_value)
         self.times_flashed = 0
         self.has_flashed_already = 0
@@ -32,10 +31,7 @@ class Octopus:
 
 class Field:
     def __init__(self, file: Path):
-        self.field = [
-            [Octopus(x) for x in line]
-            for line in file.read_text().splitlines()
-        ]
+        self.field = [[Octopus(x) for x in line] for line in file.read_text().splitlines()]
         self.start_flashing = False
 
     def _do_for_all_oktopi(self, method: str):
@@ -47,7 +43,7 @@ class Field:
         """
         First, the energy level of each octopus increases by 1.
         """
-        self._do_for_all_oktopi('increase')
+        self._do_for_all_oktopi("increase")
 
     def step2(self):
         """
@@ -57,12 +53,12 @@ class Field:
         long as new octopuses keep having their energy level increased beyond 9. (An octopus can only
         flash at most once per step.)
         """
-        self._do_for_all_oktopi('step2_init')
+        self._do_for_all_oktopi("step2_init")
 
         keep_flashing = True
 
         while keep_flashing:
-            self._do_for_all_oktopi('flash')
+            self._do_for_all_oktopi("flash")
 
             keep_flashing = False
             for y, line in enumerate(self.field):
@@ -76,7 +72,7 @@ class Field:
         Finally, any octopus that flashed during this step has its energy level
           set to 0, as it used all of its energy to flash.
         """
-        self._do_for_all_oktopi('step3')
+        self._do_for_all_oktopi("step3")
 
     def _increase(self, x: int, y: int) -> None:
         if x < 0 or y < 0:
@@ -101,17 +97,10 @@ class Field:
         self._increase(x, y + 1)
 
     def get_flashes(self) -> int:
-        return sum(
-            okt.times_flashed
-            for line in self.field
-            for okt in line
-        )
+        return sum(okt.times_flashed for line in self.field for okt in line)
 
     def __repr__(self) -> str:
-        return '\n'.join(
-            ''.join(str(okt.value) for okt in line)
-            for line in self.field
-        )
+        return "\n".join("".join(str(okt.value) for okt in line) for line in self.field)
 
     def do_all_steps(self):
         self.step1()
@@ -119,14 +108,10 @@ class Field:
         self.step3()
 
     def did_all_oktopi_flash(self):
-        return all(
-            okt.value == 0
-            for line in self.field
-            for okt in line
-        )
+        return all(okt.value == 0 for line in self.field for okt in line)
 
 
-def simulate_steps(file: Path, steps=100) -> Tuple[int, str]:
+def simulate_steps(file: Path, steps=100) -> tuple[int, str]:
     field = Field(file)
 
     for _ in range(steps):
