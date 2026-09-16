@@ -1,0 +1,15 @@
+[project]
+name = "advent-of-code-2021"
+version = "0.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "networkx",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.uv]
+package = false
