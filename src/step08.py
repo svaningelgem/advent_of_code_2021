@@ -24,7 +24,11 @@ d_6 = digits[6]
 d_7 = digits[7]
 d_8 = digits[8]
 d_9 = digits[9]
-easy_digits = {k: v for k, v in enumerate(digits) if len([x for x in digits if len(v) == len(x)]) == 1}
+easy_digits = {
+    k: v
+    for k, v in enumerate(digits)
+    if len([x for x in digits if len(v) == len(x)]) == 1
+}
 
 
 def _diff(x: str, y: str) -> tuple[str, str]:
@@ -75,12 +79,16 @@ def _get_number(first: str, second: str) -> int:
     splitted_first = first.strip().split(" ")
     working = digits.copy()
 
-    conversion_table = {orig: [d for d in splitted_first if len(d) == len(orig)] for orig in working}
+    conversion_table = {
+        orig: [d for d in splitted_first if len(d) == len(orig)] for orig in working
+    }
 
     know = {}  # Original letter -> converted letter
 
     entries = 0
-    while not (len(know) == 7 and all(len(x) == 1 for x in know.values())):  # 7 unique values.
+    while not (
+        len(know) == 7 and all(len(x) == 1 for x in know.values())
+    ):  # 7 unique values.
         entries += 1
 
         # These are 1 letter apart
@@ -99,7 +107,9 @@ def _get_number(first: str, second: str) -> int:
         for tpl, cnt in Counter(tuple(x) for x in know.values()).items():
             if cnt <= 1:
                 continue
-            if len(tpl) != cnt:  # For example (a,b) is twice there: we can remove these letters from all others.
+            if (
+                len(tpl) != cnt
+            ):  # For example (a,b) is twice there: we can remove these letters from all others.
                 continue
 
             tpl = set(tpl)
@@ -126,7 +136,9 @@ def _get_number(first: str, second: str) -> int:
                 continue
 
             # Remove values that don't have the same length as the key anymore.
-            new_conversion_table[new_key] = [x for x in new_values if len(x) == len(new_key)]
+            new_conversion_table[new_key] = [
+                x for x in new_values if len(x) == len(new_key)
+            ]
         conversion_table = new_conversion_table
 
         working = ["".join(set(old) - set(unique_values.keys())) for old in working]

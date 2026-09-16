@@ -17,7 +17,9 @@ def _get_fuel_cost(from_: int, to_: int, exponential: bool) -> int:
         return max_ - min_
 
 
-def _what_if_move_all_to(lst: list[int], to_position: int, exponential: bool = False) -> int:
+def _what_if_move_all_to(
+    lst: list[int], to_position: int, exponential: bool = False
+) -> int:
     fuel_cost = 0
     for entry in lst:
         fuel_cost += _get_fuel_cost(entry, to_position, exponential)

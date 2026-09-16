@@ -15,7 +15,13 @@ def test_step8_real_data():
 
 
 def test_step8_part2():
-    assert _get_number("acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab", "cdfeb fcadb cdfeb cdbaf") == 5353
+    assert (
+        _get_number(
+            "acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab",
+            "cdfeb fcadb cdfeb cdbaf",
+        )
+        == 5353
+    )
     assert decode_numbers(TEST_INPUT) == 61229
 
 

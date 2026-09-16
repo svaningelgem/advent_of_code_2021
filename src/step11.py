@@ -31,7 +31,9 @@ class Octopus:
 
 class Field:
     def __init__(self, file: Path):
-        self.field = [[Octopus(x) for x in line] for line in file.read_text().splitlines()]
+        self.field = [
+            [Octopus(x) for x in line] for line in file.read_text().splitlines()
+        ]
         self.start_flashing = False
 
     def _do_for_all_oktopi(self, method: str):

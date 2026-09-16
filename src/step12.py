@@ -24,7 +24,9 @@ class Node:
         self.connections.add(other)
 
     def __repr__(self):
-        return f"Node({self.name}) -> {','.join(sorted(x.name for x in self.connections))}"
+        return (
+            f"Node({self.name}) -> {','.join(sorted(x.name for x in self.connections))}"
+        )
 
 
 class Graph:
@@ -61,7 +63,9 @@ def _build_graph(file: Path) -> Graph:
 
 
 def _find_candidates_distinct(start: Node, path_till_now: list) -> list[Node]:
-    return [conn for conn in start.connections if conn.is_big or conn not in path_till_now]
+    return [
+        conn for conn in start.connections if conn.is_big or conn not in path_till_now
+    ]
 
 
 def _find_candidates_multi(start: Node, path_till_now: list) -> list[Node]:

@@ -5,7 +5,9 @@ from pathlib import Path
 LowPoint = namedtuple("LowPoint", "x y value")
 
 
-def _is_low_point_protected(matrix: list[list[int]], x: int, y: int, x2: int, y2: int) -> bool:
+def _is_low_point_protected(
+    matrix: list[list[int]], x: int, y: int, x2: int, y2: int
+) -> bool:
     if x2 < 0 or y2 < 0:
         return True
 
@@ -50,7 +52,9 @@ def find_low_points(file: Path) -> int:
     return sum(x.value for x in low_points) + len(low_points)
 
 
-def _find_basin_for(matrix: list[list[int]], x: int, y: int, final: list[LowPoint]) -> None:
+def _find_basin_for(
+    matrix: list[list[int]], x: int, y: int, final: list[LowPoint]
+) -> None:
     # A basin flows from the x,y position of the lowest point, and is bordered by 9's (not inclusive)
     if x < 0 or y < 0:
         return
